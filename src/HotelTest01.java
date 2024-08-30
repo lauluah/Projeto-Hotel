@@ -26,6 +26,7 @@ public class HotelTest01 {
             Reservar.AdicionarReserva(cliente, escolhaDoQuarto);
 
             System.out.println("Reservas atuais:");
+            Reservar.mostrarReservas();
 
             System.out.println("Deseja adicionar outra reserva? (s/n)");
             String resposta = sc.nextLine();

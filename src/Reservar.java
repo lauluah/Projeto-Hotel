@@ -42,7 +42,7 @@ public class Reservar {
         return "Valor da compra: R$" + pagamento.getValorCompra();
     }
 
-    public static String gerarCodigo() {
+    private static String gerarCodigo() {
         Random random = new Random();
         StringBuilder codigo = new StringBuilder(CODIGO_LENGTH);
 
@@ -96,7 +96,7 @@ public class Reservar {
         }
     }
 
-    private static void mostrarReservas() {
+    protected static void mostrarReservas() {
         for (int i = 0; i < reservas.size(); i++) {
             System.out.println(reservas.get(i));
         }

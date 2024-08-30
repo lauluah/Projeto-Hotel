@@ -1,7 +1,7 @@
 package src;
 
 public enum Quartos {
-    SOLTEIRO(230.00),
+    SOLTEIRO(190.00),
     CASAL(230.00);
 
     private final double preco;
