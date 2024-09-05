@@ -7,6 +7,7 @@ public class Pagamento {
     public Pagamento(Quartos quartoEscolhido) {
         this.quartoEscolhido = quartoEscolhido;
         this.valorCompra = calcularValorTotal(quartoEscolhido);
+
     }
 
     public Double calcularValorTotal(Quartos quartoEscolhido) {
@@ -24,7 +25,7 @@ public class Pagamento {
         return valorCompra;
     }
 
-    public void setValorCompra(Double valorCompra) {
+    private void setValorCompra(Double valorCompra) {
         this.valorCompra = valorCompra;
     }
 }

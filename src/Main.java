@@ -23,10 +23,16 @@ public class Main {
             hotel.mostrarPrecosQuartos();
             String escolhaDoQuarto = sc.nextLine();
 
-            Reservar.AdicionarReserva(cliente, escolhaDoQuarto);
+            System.out.println("Opções: ");
+            System.out.println("1- Debito");
+            System.out.println("2- Credito");
+            System.out.println("3- Pix");
+            String formaDePagamento = sc.nextLine();
 
-            System.out.println("Reservas atuais:");
-            Reservar.mostrarReservas();
+            Reservar.AdicionarReserva(cliente, escolhaDoQuarto, formaDePagamento);
+
+           // System.out.println("Reservas atuais:");
+           // Reservar.mostrarReservas();
 
             System.out.println("Deseja adicionar outra reserva? (s/n)");
             String resposta = sc.nextLine();

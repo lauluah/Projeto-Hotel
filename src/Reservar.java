@@ -20,9 +20,8 @@ public class Reservar {
         this.codigo = codigo;
     }
 
-    public String reservarQuartoDoHotel(String numeroQuarto) {
+    public String reservarQuartoDoHotel(String numeroQuarto, String tipoDePagamento) {
         Pagamento pagamento = null;
-
         try {
             Quartos quartoEscolhido;
 
@@ -34,12 +33,13 @@ public class Reservar {
                 return "Número do quarto inválido!";
             }
             pagamento = new Pagamento(quartoEscolhido);
-
+            Pagar pagar = new Pagar(tipoDePagamento, pagamento.getValorCompra());
         } catch (Exception e) {
             e.printStackTrace();
             return "Erro ao processar a reserva.";
         }
-        return "Valor da compra: R$" + pagamento.getValorCompra();
+
+        return "Valor: ";
     }
 
     private static String gerarCodigo() {
@@ -54,14 +54,16 @@ public class Reservar {
         return codigo.toString();
     }
 
-    public static void AdicionarReserva(Cliente cliente, String quartoEscolhido) {
+    public static void AdicionarReserva(Cliente cliente, String quartoEscolhido, String formaDePagamento) {
         try {
             if (quartoEscolhido.equals("1") || quartoEscolhido.equals("2") || quartoEscolhido.equals("3")) {
                 String codigoDaReserva = gerarCodigo();
+
                 Reservar reservaCliente = new Reservar(cliente, quartoEscolhido, codigoDaReserva);
                 reservas.add(reservaCliente);
-                reservaCliente.reservarQuartoDoHotel(quartoEscolhido);
+                reservaCliente.reservarQuartoDoHotel(quartoEscolhido, formaDePagamento);
                 imprimirReserva(cliente);
+
             } else { System.out.println("Essa opção não existe"); }
 
         } catch (Exception e) {
